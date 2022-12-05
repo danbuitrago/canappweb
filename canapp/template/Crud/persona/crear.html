@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="/static/css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+        {# Cargamos la librería #}
+        {% load bootstrap4 %}
+ 
+        {# CSS Bootstrap #}
+        {% bootstrap_css %} 
+
+        {# Widget Tweaks #}
+        {% load widget_tweaks %}
+
+        <form method="post" enctype="multipart/form-data">
+    
+        {# Pasamos el 'csrf_token' de seguridad para poder crear un nuevo registro #}
+        {% csrf_token %}
+      
+          <!-- {{ form.as_p }} -->
+
+    </head>
+
+    <body class="sb-nav-fixed">
+        {% include "nav.html" %}                           
+            </div>
+            <div id="layoutSidenav_content">
+                
+        <main>
+            <div class="form-group">
+                <label for="form.idmascota" class="txt_negrita">Id persona</label>
+                {{ form.idpersona|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+              </div>
+              <div class="form-group">
+                <label for="identificacion" class="txt_negrita">Nombre</label>
+                {{ form.identificacion|add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="primernombre " class="txt_negrita">Primernombre</label>
+                {{ form.primernombre|add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="segundonombre " class="txt_negrita">Segundonombre</label>
+                {{ form.segundonombre|add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="Primerapellido " class="txt_negrita">Primerapellido</label>
+                {{ form.primerapellido|add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="Segundoapellido " class="txt_negrita">Segundoapellido</label>
+                {{ form.segundoapellido|add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="Email " class="txt_negrita">Email</label>
+                {{ form.email |add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="Telefono " class="txt_negrita">Telefono</label>
+                {{ form.telefono|add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="Direccion " class="txt_negrita">Direccion</label>
+                {{ form.direccion|add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="Tpersona_idtpersona " class="txt_negrita">Tpersona_idtpersona</label>
+                {{ form.tpersona_idtpersona|add_class:"form-control" }}
+              </div>
+              <div class="form-group">
+                <label for="Tdocumento_idtdocumento " class="txt_negrita">Tdocumento_idtdocumento</label>
+                {{ form.telefono|add_class:"form-control" }}
+              </div>
+
+            
+                
+                <button type="submit" class="btn btn-primary">Aceptar</button> 
+                <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
+              
+              </form>
+
+          
+        </main>
+
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+

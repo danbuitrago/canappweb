@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="/static/css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body class="sb-nav-fixed">
+        {% include "nav.html" %}                           
+            </div>
+            <div id="layoutSidenav_content">
+                
+        <main>
+                      {# Cargamos la librería #}
+          {% load bootstrap4 %}
+          
+          {# CSS Bootstrap #}
+          {% bootstrap_css %} 
+
+          {# Widget Tweaks #}
+          {% load widget_tweaks %}
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th width="35%">Id mascota</th>
+                <th>Nombre</th>
+                <th>Color</th>
+                <th>Peso </th>
+                <th>Genero </th>
+                <th>Fecha de nacimiento </th>
+                <th>Observaciones </th>
+                <th>Id collar </th>
+                <th>Id tanimal </th>
+                <th>Id raza </th>
+                <th>Id especie </th>
+                <th>Id alarmas </th>
+              </tr>
+            </thead>
+            <tbody>  
+            
+            {% for categoria in object_list %}
+              <tr>
+                <td>{{ categoria.idcategorias}}</td>
+                <td>{{ categoria.nombre }}</td>
+                <td>{{ categoria.descripcion }}</td>
+                <td>
+            
+                  <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
+                  <form method="POST" action="eliminar/{{postre.id}}">
+                    {% csrf_token %}
+                    <div class="btn-group">
+                      
+                      <a href="detalle/{{categoria.idcategorias}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                      <a href="editar/{{categoria.idcategorias}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                      
+                      <!-- Este botón ejecuta el formulario para eliminar un registro o postre en la Base de datos -->
+                      <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+                          Eliminar
+                        </button>
+            
+                    </div>
+                  </form>
+            
+                  </td>
+                </tr>
+              {% endfor %}
+            
+              </tbody>
+            </table>
+         
+        </main>
+
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+    </body>
+</html>
+
+
+
+
+
+
+
+ 
