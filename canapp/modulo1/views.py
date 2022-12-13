@@ -19,7 +19,112 @@ from django.contrib.messages.views import SuccessMessageMixin
 # Habilitamos los formularios en Django
 from django import forms
 
+
+
+
 # Create your views here.
+#-----------------------------Login----------------------------------------------------# 
+
+
+def Login(request):
+    return render (request, "login.html")
+
+
+
+#-----------------------------Login----------------------------------------------------#
+#-----------------------------Collar----------------------------------------------------#  
+class ListadoCollar(ListView):
+    model =Collar
+    
+class CollarCrear(SuccessMessageMixin, CreateView):
+    model = Collar
+    form = Collar
+    fields = "__all__"
+    success_message ='Collar creada correctamente'
+     
+    def get_success_url(self):        
+        return reverse('modulo1:leerco') # Redireccionamos a la vista principal 'leer'
+ 
+class CollarDetalle (DetailView):
+    model =Collar
+ 
+class  CollarActualizar(SuccessMessageMixin,UpdateView):
+    model =  Collar
+    form = Collar
+    fields = "__all__" # Le decimos a Django que muestre todos los campos de la tabla 'postres' de nuestra Base de Datos 
+    success_message = 'Collar actualizada correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
+ 
+    def get_success_url(self):               
+        return reverse('modulo1:leerco') # Redireccionamos a la vista principal 'leer'
+class CollarEliminar(SuccessMessageMixin, DeleteView): 
+    model = Collar
+    form = Collar
+    fields = "__all__"     
+ 
+    # Redireccionamos a la página principal luego de eliminar un registro o postre
+    def get_success_url(self): 
+        success_message = 'Collar eliminada correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
+        messages.success (self.request, (success_message))       
+        return reverse('modulo1:leerco') # Redireccionamos a la vista principal 'leer'
+
+#-----------------------------Collar----------------------------------------------------# 
+
+#-----------------------------Persona----------------------------------------------------# 
+   
+class ListadoPersona(ListView):
+    model = Persona
+   
+class PersonaCrear(SuccessMessageMixin, CreateView):
+    model = Persona
+    form = Persona
+    fields = "__all__"
+    success_message ='Persona creada correctamente'
+     
+    def get_success_url(self):        
+        return reverse('modulo1:leerp') # Redireccionamos a la vista principal 'leer'
+ 
+class PersonaDetalle (DetailView):
+    model = Persona
+ 
+class  PersonaActualizar(SuccessMessageMixin,UpdateView):
+    model =  Persona
+    form = Persona
+    fields = "__all__" # Le decimos a Django que muestre todos los campos de la tabla 'postres' de nuestra Base de Datos 
+    success_message = 'Persona Actualizada Correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
+ 
+    def get_success_url(self):               
+        return reverse('modulo1:leerp') # Redireccionamos a la vista principal 'leer'
+
+class PersonaEliminar(SuccessMessageMixin, DeleteView): 
+    model = Persona 
+    form = Persona
+    fields = "__all__"     
+ 
+# Redireccionamos a la página principal luego de eliminar un registro o postre
+    def get_success_url(self): 
+        success_message = 'Persona Eliminada Correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
+        messages.success (self.request, (success_message))       
+        return reverse('modulo1:leerp') # Redireccionamos a la vista principal 'leer'
+ 
+ #-----------------------------Persona----------------------------------------------------# 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #-----------------------------Mascotas----------------------------------------------------#
 class ListadoMascota(ListView):
     model = Mascota
@@ -58,44 +163,7 @@ class MascotaEliminar(SuccessMessageMixin, DeleteView):
  
  #-----------------------------Mascotas----------------------------------------------------#  
  
-  #-----------------------------Persona----------------------------------------------------# 
    
-class ListadoPersona(ListView):
-    model = Persona
-   
-class PersonaCrear(SuccessMessageMixin, CreateView):
-    model = Persona
-    form = Persona
-    fields = "__all__"
-    success_message ='Persona creada correctamente'
-     
-    def get_success_url(self):        
-        return reverse('modulo1:leerp') # Redireccionamos a la vista principal 'leer'
- 
-class PersonaDetalle (DetailView):
-    model = Persona
- 
-class  PersonaActualizar(SuccessMessageMixin,UpdateView):
-    model =  Persona
-    form = Persona
-    fields = "__all__" # Le decimos a Django que muestre todos los campos de la tabla 'postres' de nuestra Base de Datos 
-    success_message = 'Persona Actualizada Correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
- 
-    def get_success_url(self):               
-        return reverse('modulo1:leerp') # Redireccionamos a la vista principal 'leer'
-
-class PersonaEliminar(SuccessMessageMixin, DeleteView): 
-    model = Persona 
-    form = Persona
-    fields = "__all__"     
- 
-# Redireccionamos a la página principal luego de eliminar un registro o postre
-    def get_success_url(self): 
-        success_message = 'Persona Eliminada Correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
-        messages.success (self.request, (success_message))       
-        return reverse('modulo1:leerp') # Redireccionamos a la vista principal 'leer'
- 
- #-----------------------------Persona----------------------------------------------------#  
 
  
 #-----------------------------VISTAS DE EMPRESA--------------------------------------------#     
@@ -111,7 +179,7 @@ class EmpresaCrear(SuccessMessageMixin, CreateView):
     success_message ='Mascota creada correctamente'
      
     def get_success_url(self):        
-        return reverse('leer') # Redireccionamos a la vista principal 'leer'
+        return reverse('leere') # Redireccionamos a la vista principal 'leer'
  
 class EmpresaDetalle (DetailView):
     model =Empresa
@@ -123,17 +191,17 @@ class  EmpresaActualizar(SuccessMessageMixin,UpdateView):
     success_message = 'Mascota Actualizada Correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
  
     def get_success_url(self):               
-        return reverse('leer') # Redireccionamos a la vista principal 'leer'
+        return reverse('leere') # Redireccionamos a la vista principal 'leer'
 class EmpresaEliminar(SuccessMessageMixin, DeleteView): 
     model = Empresa
     form = Empresa
     fields = "__all__"     
  
     # Redireccionamos a la página principal luego de eliminar un registro o postre
-    def get_success_url(self): 
+    def get_success_serveurl(self): 
         success_message = 'Mascota Eliminada Correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
         messages.success (self.request, (success_message))       
-        return reverse('leer') # Redireccionamos a la vista principal 'leer'
+        return reverse('leere') # Redireccionamos a la vista principal 'leer'
     
 #-----------------------------Empresa-----------------------------------------------------#  
 #----------------------------VISTAS DE EMPRESA--------------------------------------------#      
@@ -337,3 +405,85 @@ class TdocumentoEliminar(SuccessMessageMixin, DeleteView):
 
 #-----------------------------Tipo Documento ---------------------------------------------------#  
 
+
+#-----------------------------Clase alarma----------------------------------------------------#  
+class ListadoCalarma(ListView):
+    model =Calarma
+    
+class CalarmaCrear(SuccessMessageMixin, CreateView):
+    model = Calarma
+    form = Calarma
+    fields = "__all__"
+    success_message ='Clase alarma creada correctamente'
+     
+    def get_success_url(self):        
+        return reverse('leerca') # Redireccionamos a la vista principal 'leer'
+ 
+class CalarmaDetalle (DetailView):
+    model =Calarma
+ 
+class  CalarmaActualizar(SuccessMessageMixin,UpdateView):
+    model =  Calarma
+    form = Calarma
+    fields = "__all__" # Le decimos a Django que muestre todos los campos de la tabla 'postres' de nuestra Base de Datos 
+    success_message = 'Clase alarma actualizada correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
+ 
+    def get_success_url(self):               
+        return reverse('leerca') # Redireccionamos a la vista principal 'leer'
+class CalarmaEliminar(SuccessMessageMixin, DeleteView): 
+    model = Calarma
+    form = Calarma
+    fields = "__all__"     
+ 
+    # Redireccionamos a la página principal luego de eliminar un registro o postre
+    def get_success_url(self): 
+        success_message = 'Clase alarma eliminada correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
+        messages.success (self.request, (success_message))       
+        return reverse('leerca') # Redireccionamos a la vista principal 'leer'
+
+#-----------------------------Clase Alarma----------------------------------------------------# 
+
+
+
+#-----------------------------Collar----------------------------------------------------#  
+
+ 
+
+# Create your views here.
+#-----------------------------alarma----------------------------------------------------#
+class ListadoAlarma(ListView):
+    model = Alarma
+   
+class AlarmaCrear(SuccessMessageMixin, CreateView):
+    model = Alarma
+    form = Alarma
+    fields = "__all__"
+    success_message ='Alarma creada correctamente'
+     
+    def get_success_url(self):        
+        return reverse('modulo1:leera') # Redireccionamos a la vista principal 'leer'
+ 
+class AlarmaDetalle (DetailView):
+    model =Alarma
+ 
+class  AlarmaActualizar(SuccessMessageMixin,UpdateView):
+    model =  Alarma
+    form = Alarma
+    fields = "__all__" # Le decimos a Django que muestre todos los campos de la tabla 'postres' de nuestra Base de Datos 
+    success_message = 'Alarma Actualizada Correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
+ 
+    def get_success_url(self):               
+        return reverse('modulo1:leera') # Redireccionamos a la vista principal 'leer'
+
+class AlarmaEliminar(SuccessMessageMixin, DeleteView): 
+    model = Alarma 
+    form = Alarma
+    fields = "__all__"     
+ 
+# Redireccionamos a la página principal luego de eliminar un registro o postre
+    def get_success_url(self): 
+        success_message = 'Alarma Eliminada Correctamente !' # Mostramos este Mensaje luego de Editar un Postre 
+        messages.success (self.request, (success_message))       
+        return reverse('modulo1:leera') # Redireccionamos a la vista principal 'leer'
+ 
+ #---------------------------alarma----------------------------------------------------#  

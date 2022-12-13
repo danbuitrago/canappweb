@@ -14,18 +14,53 @@
     </head>
     <body class="sb-nav-fixed">
 
-        {% include "nav.html" %}
-                           
+        {% include "nav.html" %}              
             </div>
             <div id="layoutSidenav_content">
-                <main>
+
+            <main>
+                    {# Cargamos la librería #}
+                    {% load bootstrap4 %}
                     
-                                       
+                    {# CSS Bootstrap #}
+                    {% bootstrap_css %} 
 
+                    {# Widget Tweaks #}
+                    {% load widget_tweaks %}
 
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        
+                        <!-- {{ form.as_p }} -->
+                        <div class="form-group">
+                            <label for="idcategorias" class="txt_negrita">Id empresa</label>
+                            {{ form.idempresa|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre" class="txt_negrita">Nit</label>
+                            {{ form.nit|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre" class="txt_negrita">Nombre</label>
+                            {{ form.nombre|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre" class="txt_negrita">Direccion</label>
+                            {{ form.direccion|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre" class="txt_negrita">Telefono</label>
+                            {{ form.telefono|add_class:"form-control" }}
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion " class="txt_negrita">Id persona</label>
+                            {{ form.persona_idpersona|add_class:"form-control" }}
+                        </div>
 
-
-                    
+                        <button type="submit" class="btn btn-primary">Aceptar</button>
+                        <a href="../" type="submit" class="btn btn-primary">Volver</a>
+                        
+                    </form>
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -51,37 +86,4 @@
     </body>
 </html>
 
-
-
-
-{# Cargamos la librería #}
-{% load bootstrap4 %}
- 
-{# CSS Bootstrap #}
-{% bootstrap_css %} 
-
-{# Widget Tweaks #}
-{% load widget_tweaks %}
-
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  
-  <!-- {{ form.as_p }} -->
-  <div class="form-group">
-    <label for="idcategorias" class="txt_negrita">Codigo categoria</label>
-    {{ form.idcategorias|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
-  </div>
-  <div class="form-group">
-    <label for="nombre" class="txt_negrita">Nombre</label>
-    {{ form.nombre|add_class:"form-control" }}
-  </div>
-  <div class="form-group">
-    <label for="descripcion " class="txt_negrita">Descripcion</label>
-    {{ form.descripcion|add_class:"form-control" }}
-  </div>
-
-  <button type="submit" class="btn btn-primary">Aceptar</button>
-  <a href="../" type="submit" class="btn btn-primary">Volver</a>
- 
-</form>
 

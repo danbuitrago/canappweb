@@ -42,33 +42,40 @@
                       <div align="left" class="btn_crear mb-3">
                         <a href="crear" type="button" class="btn btn-primary">Crear</a>
                       </div>
-                      <!--listando los categoria en una tabla HTML-->
+                      <!--listando los empresa en una tabla HTML-->
                       <table class="table table-striped table-hover">
                           <thead>
                             <tr>
-                              <th width="35%">Codigo  de categoria</th>
+                              <th width="35%">Id Empresa</th>
+                              <th>Nit</th>
                               <th>Nombre</th>
-                              <th>Descripción</th>
+                              <th>Direccion</th>
+                              <th>Telefono</th>
+                              <th>Id persona</th>
+                              
                               
                             </tr>
                           </thead>
                           <tbody>
                           
-                              <!-- Recorremos los objetos o registros que tenemos en nuestra tabla 'categoria' y los listamos -->
-                              {% for categoria in object_list %}
+                              <!-- Recorremos los objetos o registros que tenemos en nuestra tabla 'empresa' y los listamos -->
+                              {% for Empresa in object_list %}
                                 <tr>
-                                  <td>{{ categoria.idcategorias }}</td>
-                                  <td>{{ categoria.nombre }}</td>
-                                  <td>{{ categoria.descripcion }}</td>
+                                  <td>{{ Empresa.idempresa }}</td>
+                                  <td>{{ Empresa.nit }}</td>
+                                  <td>{{ Empresa.nombre }}</td>
+                                  <td>{{ Empresa.direccion }}</td>
+                                  <td>{{ Empresa.telefono }}</td>
+                                  <td>{{ Empresa.persona_idpersona }}</td>
                                   <td>
                                   <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
-                              <form method="POST" action="eliminar/{{categoria.idcategorias}}">
+                              <form method="POST" action="eliminar/{{empresa.idempresa}}">
                                   {% csrf_token %}
                                   <div class="btn-group">
                         
                                     <!-- Creamos 3 botones que son ver, Editar y Eliminar, nos sirven para gestionar nuestros registros o postres -->
-                                    <a href="detalle/{{categoria.idcategorias}}" title="Ver" type="button" class="btn btn-success">Ver </a>
-                                    <a href="editar/{{categoria.idcategorias}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                                    <a href="detalle/{{empresa.idempresa}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                                    <a href="editar/{{empresa.idempresa}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
                                     <button class="btn btn-danger" onclick="return eliminar();" type="submit">
                                       Eliminar
                                     </button>

@@ -7,45 +7,63 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Login - SB Admin</title>
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="/static/css/styles.css/" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-primary">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-5">
-                                <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
-                                    <div class="card-body">
-                                        <form>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
-                                                <label for="inputEmail">Email address</label>
-                                            </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" type="password" placeholder="Password" />
-                                                <label for="inputPassword">Password</label>
-                                            </div>
-                                            <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
-                                            </div>
-                                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Forgot Password?</a>
-                                                <a class="btn btn-primary" href="index.html">Login</a>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                    <div class="col-lg-4">
+                       
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-5">
+                                    <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                        <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                        <div class="card-body">
+                                            <form  method="POST" action="{% url 'login' %}">
+                                                {% csrf_token %}
+                            
+                            
+                            
+                                                <div class="wrap-input100 validate-input" data-validate = "Enter username"> 
+                                                    
+                                                    <input class="input100" type="text" name="username" placeholder="User name">
+                                                
+                                                    <span class="focus-input100" data-placeholder="&#xe82a;"></span>
+                                                    
+                                                </div>
+                                                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                                                    
+                                                    <input class="input100" type="password" name="password" placeholder="Password"> 
+                                                    
+                                                    <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+                                                
+                                                </div>
+                            
+                                                <div class="container-login100-form-btn m-t-32">
+                                                    <button class="login100-form-btn">
+                                                        Login
+                                                    </button>
+                                                </div>
+                                                <a > no tienes cuenta? crear cuenta </a>
+                                            </form>
+                                        </div>
+                                        <div class="card-footer text-center py-3">
+                                            <div class="small"><a >Nueva Cuenta? Registrate!</a></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
+                    <div class="col-lg-5">  
+
+                        
+                    </div> 
                 </main>
             </div>
             <div id="layoutAuthentication_footer">
