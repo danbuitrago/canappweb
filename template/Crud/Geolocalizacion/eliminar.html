@@ -1,0 +1,87 @@
+ {# Cargamos la librería #}
+ {% load bootstrap4 %}
+ 
+ {# CSS Bootstrap #}
+ {% bootstrap_css %} 
+
+ {# Widget Tweaks #}
+ {% load widget_tweaks %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="/static/css/styles.css/" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        {% include "nav.html" %}
+            <div id="layoutSidenav_content">
+                <main>
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th width="35%">Codigo de Geolocalizacion</th>
+                        <th >Fecha</th>
+                        <th >Longitud</th>
+                        <th >Latitud</th>
+                        <th >ID collar</th>
+                      </tr>
+                    </thead>
+                    <tbody>  
+                   
+                    {% for collar in object_list %}
+                      <tr>
+                        <td>{{ geolocalizacion.idgeolocalizacion}}</td>
+                        <td>{{ geolocalizacion.fecha }}</td>
+                        <td>{{ geolocalizacion.longitud }}</td>
+                        <td>{{ geolocalizacion.latitud }}</td>
+                        <td>{{ geolocalizacion.collar_idcollar }}</td>
+                        <td>
+                   
+                          <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o actividad desde la misma tabla HTML -->                        
+                          <form method="POST" action="eliminar/{{collar.idcollar}}">
+                            {% csrf_token %}
+                            <div class="btn-group">
+                              
+                              <a href="detalle/{{collar.idcollar}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                              <a href="editar/{{collar.idcollar}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                              
+                              <!-- Este botón ejecuta el formulario para eliminar un registro o actividad en la Base de datos -->
+                              <button class="btn btn-danger" onclick="return eliminar();" type="submit">
+                                Eliminar
+                              </button>
+                   
+                            </div>
+                          </form>
+                   
+                        </td>
+                      </tr>
+                    {% endfor %}
+                   
+                    </tbody>
+                  </table>
+                    
+                </main>
+                
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+    </body>
+</html>
+
+
+   
