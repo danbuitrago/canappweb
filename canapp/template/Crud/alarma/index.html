@@ -21,7 +21,7 @@
         {% if messages %}
         <ul class="messages list-group mb-3">
           {% for message in messages %}
-          <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+          <li {% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
           {% endfor %}
         </ul>
         {% endif %}
@@ -32,10 +32,10 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Nivel</h1>
+                        <h1 class="mt-4">Alarma</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Parametros</a></li>
-                            <li class="breadcrumb-item active">Nivel</li>
+                            <li class="breadcrumb-item"><a href="index.html">Alarma</a></li>
+                            <li class="breadcrumb-item active">Alarma</li>
                         </ol>
                         
                             {# JS y jQuery Bootstrap #}
@@ -46,56 +46,48 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Nivel
+                                alarma
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Código de alarma </th>
-                                            <th>Nombre</th>
+                                            <th>Código de Alarma </th>
+                                            <th>Nombre</th>  
                                             <th>Estado</th>
-                                            <th>fecha de la alarma</th>
-                                            <th>rutasonido</th>
-                                            <th>talarma_idtalarma</th>
-                                            <th>calarma_idcalarma</th>                                           
+                                            <th>Fecha de la Alarma</th>
+                                            <th>Ruta Sonido</th> 
+                                            <th>Tipo de Alarma</th>
+                                            <th>Clase de Alarma</th>                                        
                                         </tr>
                                     </thead>
                                     <tfoot>
-                                        <tr>
-                                            <th>Código de alarma </th>
-                                            <th>Nombre</th>
-                                            <th>Estado</th>
-                                            <th>fecha de la alarma</th>
-                                            <th>rutasonido</th>
-                                            <th>talarma_idtalarma</th>
-                                            <th>calarma_idcalarma</th>     
-                                        </tr>
+                                        
                                     </tfoot>
                                     <tbody>
-                                        {% for alarma in object_list %}
+                                        {% for Alarma in object_list %}
                                             <tr>
-                                                <td>{{ alarma.idalarmas }}</td>
-                                                <td>{{ alarma.nombre  }}</td>
-                                                <td>{{ alarma.estado  }}</td>
-                                                <td>{{ alarma.fecha_de_la_alarma  }}</td>
-                                                <td>{{ alarma.rutasonido  }}</td>
-                                                <td>{{ alarma.talarma_idtalarma  }}</td>
-                                                <td>{{ calarma_idcalarma  }}</td>
+                                                <td>{{ Alarma.idalarmas }}</td>
+                                                <td>{{ Alarma.nombre }}</td>
+                                                <td>{{ Alarma.estado }}</td>
+                                                <td>{{ Alarma.fecha_de_la_alarma }}</td>
+                                                <td>{{ Alarma.rutasonido }}</td>
+                                                <td>{{ Alarma.talarma_idtalarma }}</td>
+                                                <td>{{ Alarma.calarma_idcalarma }}</td>
                                                 <td>
-                                                    <form method="POST" action="eliminar/{{alarma.idalarma}}">
+                                                    <form method="POST" action="eliminar/{{Alarma.idalarmas}}">
                                                         {% csrf_token %}
                                                         <div class="btn-group">
                       
                                                             <!-- Creamos 3 botones que son ver, Editar y Eliminar, nos sirven para gestionar nuestros registros o postres -->
-                                                            <a href="detalle/{{alarma.idalarma}}" title="Ver" type="button" class="btn btn-success">Ver </a>
-                                                            <a href="editar/{{alarma.idalarma}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                                                            <a href="detalle/{{Alarma.idalarmas}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                                                            <a href="editar/{{Alarma.idalarmas}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
                                                             <button class="btn btn-danger" onclick="return eliminar();" type="submit">
                                                               Eliminar
                                                             </button>
                                                         </div>
-                                                    </form    
-                                               </td>     
+                                                    </form>
+                                                </td>     
                                             </tr>
                                       
                                         {% endfor %}

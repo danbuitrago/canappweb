@@ -1,0 +1,14 @@
+{% extends "home.html" %}
+{%load static %}
+
+{% block content %}
+
+        {%for service in services %}
+        <div class='derecha' style="text-align: center;">
+            <div class=''> <h2> <span>{{service.title}}</span> </h2> </div>
+            <img class="" src="{{service.image.url}}" alt="" style="width:320px;height:212px;">
+            <div class=''><p>{{service.content}}</p> </div>
+        </div>
+        {%endfor%}
+
+{% endblock %}

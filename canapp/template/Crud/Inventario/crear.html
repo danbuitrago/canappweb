@@ -1,0 +1,99 @@
+{# Cargamos la librería #}
+{% load bootstrap4 %}
+{# CSS Bootstrap #}
+{% bootstrap_css %} 
+
+{# Widget Tweaks #}
+{% load widget_tweaks %}
+   
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link href="/static/css/styles.css/" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        {% include "nav.html" %}
+        </div>
+            <div id="layoutSidenav_content">
+                <main>
+                  <div class="container-fluid px-4"> 
+                      <h1 class="mt-4">Inventario</h1>
+                    
+                    <div class="card mb-4">
+                      <div class="card-header">
+                          <i class="fas fa-table me-1"></i>
+                          Inventario
+                      </div>
+                      <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+    
+                      {# Pasamos el 'csrf_token' de seguridad para poder crear un nuevo registro #}
+                      {% csrf_token %}
+                      
+                      <!-- {{ form.as_p }} -->
+                      <div class="form-group">
+                        <label for="idinventario" class="txt_negrita">Id Inventario</label>
+                        {{ form.idinventario|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                      </div>
+
+                      <div class="form-group">
+                        <label for="cantinicial " class="txt_negrita">Cantidad inicial</label>
+                        {{ form.cantinicial |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label for="cantactual " class="txt_negrita">Cantidad actual</label>
+                        {{ form.cantactual |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label for="fechacompra " class="txt_negrita">Fecha de compra</label>
+                        {{ form.fechacompra |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label for="precioventa " class="txt_negrita">Precio de venta</label>
+                        {{ form.precioventa |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div> 
+                      <div class="form-group">
+                        <label for="persona_idpersona " class="txt_negrita">Comprador</label>
+                        {{ form.persona_idpersona |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>                                            
+                      
+                      <button type="submit" class="btn btn-primary">Aceptar</button> 
+                      <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
+                    
+                    </form>
+                  </div>   
+                </main>
+                
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+    </body>
+</html>
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+
+
+   

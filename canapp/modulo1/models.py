@@ -244,6 +244,7 @@ class Historial(models.Model):
 
 class Inventario(models.Model):
     idinventario = models.AutoField(primary_key=True)
+    #producto=models.CharField(max_length=100)
     cantinicial = models.IntegerField()
     cantactual = models.IntegerField()
     fechacompra = models.DateField()

@@ -1,103 +1,88 @@
-<!DOCTYPE html>
+  {# Cargamos la librería #}
+  {% load bootstrap4 %}
+ 
+  {# CSS Bootstrap #}
+  {% bootstrap_css %} 
 
-<html lang="en">
-    
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Dashboard - SB Admin</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="/static/css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    </head>
-
-    <body class="sb-nav-fixed">
-        {% include "nav.html" %}                           
-            </div>
-            <div id="layoutSidenav_content">
-                
-        <main>
-            {# Cargamos la librería #}
-            {% load bootstrap4 %}
-            
-            {# CSS Bootstrap #}
-            {% bootstrap_css %} 
-
-            {# Widget Tweaks #}
-            {% load widget_tweaks %}
-
-            <form method="post" enctype="multipart/form-data">
-              {% csrf_token %}
-              
-              <!-- {{ form.as_p }} -->
-              <div class="form-group">
-                <label for="idcategorias" class="txt_negrita">Codigo categoria</label>
-                {{ form.idcategorias|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
-              </div>
-              <div class="form-group">
-                <label for="nombre" class="txt_negrita">Nombre</label>
-                {{ form.nombre|add_class:"form-control" }}
-              </div>
-              <div class="form-group">
-                <label for="descripcion " class="txt_negrita">Descripcion</label>
-                {{ form.descripcion|add_class:"form-control" }}
-              </div>
-
-              <button type="submit" class="btn btn-primary">Aceptar</button>
-              <a href="../" type="submit" class="btn btn-primary">Volver</a>
-            
-            </form>
-
-          
-        </main>
-
-                <footer class="py-4 bg-light mt-auto">
+  {# Widget Tweaks #}
+  {% load widget_tweaks %}
+  {% load static %}
+  <!DOCTYPE html>
+  <html lang="en">
+      <head>
+          <meta charset="utf-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+          <meta name="description" content="" />
+          <meta name="author" content="" />
+          <title>Dashboard - SB Admin</title>
+          <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+          <link href="/static/css/styles.css/" rel="stylesheet" />
+          <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+      </head>
+      <body class="sb-nav-fixed">
+          {% include "nav.html" %}
+          </div>
+               <div id="layoutSidenav_content">
+                  <main>
                     <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
-    </body>
-</html>
+                      <h1 class="mt-4">Tipo de animal</h1>
+                      <ol class="breadcrumb mb-4">
+                          <li class="breadcrumb-item"><a href="index.html">Parametros</a></li>
+                          <li class="breadcrumb-item active">Tipo de animal</li>
+                      </ol>
+                      
+                    <div class="card mb-4">
+                      <div class="card-header">
+                          <i class="fas fa-table me-1"></i>
+                          Tipo de animal
+                      </div>
+                      <div class="card-body">
+                        <table id="datatablesSimple">
+                          <tr>
+                              <form method="post" enctype="multipart/form-data">
+                                  {% csrf_token %}
+                            
+                                  <!-- {{ form.as_p }} -->
+                                    <td>
+                                      <div class="form-group">
+                                        <label for="idtanimal" class="txt_negrita">Id clase collar</label>
+                                        {{ form.idtanimal|add_class:"form-control" }}
+                                      </div>
+                                    </td> 
+                                    <td>
+                                      <div class="form-group">
+                                        <label for="nombre " class="txt_negrita">Nombre</label>
+                                        {{ form.nombre|add_class:"form-control" }}
+                                      </div>
+                                    </td>
+                                    <td>
+                                      <div class="form-group">
+                                        <label for="descripcion " class="txt_negrita">Descripción</label>
+                                        {{ form.descripcion|add_class:"form-control" }}
+                                      </div>
+                                    </td>
+                                    <td>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                  <div>
+                                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                                    <a href="../" type="submit" class="btn btn-primary">Volver</a>
+                                </div>
+                              </form>
+                          </tr>
+                           
+                        </table>
+                        
+                  </main>
+                  
+              </div>
+          </div>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+          <script src="js/scripts1.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+          <script src="assets/demo/chart-area-demo.js"></script>
+          <script src="assets/demo/chart-bar-demo.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+          <script src="js/datatables-simple-demo.js"></script>
+      </body>
+  </html>

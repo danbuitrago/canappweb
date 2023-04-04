@@ -27,30 +27,40 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4"> 
-                        <h1 class="mt-4">Nivel</h1>
+                        <h1 class="mt-4">Alarma</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">Parametros</a></li>
-                            <li class="breadcrumb-item active">Nivel</li>
+                            <li class="breadcrumb-item active">Alarma</li>
                         </ol>
                         
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Nivel
+                                Alarma
                             </div>
                             <div class="card-body">
                         
                             <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th width="35%">Código  de Nivel</th>
-                                            <th >Denominación</th>
+                                            <th width="35%">Código  de Alarma</th>
+                                            <th >Nombre</th>
+                                            <th >Estado</th>
+                                            <th >Fecha de la Alarma</th>
+                                            <th >Ruta de Sonido</th>
+                                            <th >Tipo de Alarma</th>
+                                            <th >Clase de Alarma</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>{{object.idnivel}}</td>
-                                            <td>{{object.denominacion}}</td>
+                                            <td>{{object.idalarmas}}</td>
+                                            <td>{{object.nombre}}</td>
+                                            <td>{{object.estado}}</td>
+                                            <td>{{object.fecha_de_la_alarma}}</td>
+                                            <td>{{object.rutasonido}}</td>
+                                            <td>{{object.talarma_idtalarma}}</td>
+                                            <td>{{object.alarma_idcalarma}}</td>
                                             <td>
                                         </tr>
                                     </tbody>    
@@ -69,8 +79,3 @@
             <script src="/static/js/datatables-simple-demo.js"></script>
     </body>
 </html>
-  
-  
-  
-
-

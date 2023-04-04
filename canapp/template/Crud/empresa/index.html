@@ -23,7 +23,7 @@
     {% if messages %}
     <ul class="messages list-group mb-3">
       {% for message in messages %}
-      <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+      <li {% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
       {% endfor %}
     </ul>
     {% endif %}
@@ -69,13 +69,13 @@
                                   <td>{{ Empresa.persona_idpersona }}</td>
                                   <td>
                                   <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
-                              <form method="POST" action="eliminar/{{empresa.idempresa}}">
+                              <form method="POST" action="eliminar/{{Empresa.idempresa}}">
                                   {% csrf_token %}
                                   <div class="btn-group">
                         
                                     <!-- Creamos 3 botones que son ver, Editar y Eliminar, nos sirven para gestionar nuestros registros o postres -->
-                                    <a href="detalle/{{empresa.idempresa}}" title="Ver" type="button" class="btn btn-success">Ver </a>
-                                    <a href="editar/{{empresa.idempresa}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                                    <a href="detalle/{{Empresa.idempresa}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                                    <a href="editar/{{Empresa.idempresa}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
                                     <button class="btn btn-danger" onclick="return eliminar();" type="submit">
                                       Eliminar
                                     </button>

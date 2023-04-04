@@ -35,20 +35,20 @@
                     </thead>
                     <tbody>  
                    
-                    {% for nivel in object_list %}
+                    {% for calarma in object_list %}
                       <tr>
-                        <td>{{ Calarma.idcalarma}}</td>
-                        <td>{{ Calarma.nombre }}</td>
-                        <td>{{ Calarma.descripcion  }}</td>
+                        <td>{{ calarma.idcalarma}}</td>
+                        <td>{{ calarma.nombre }}</td>
+                        <td>{{ calarma.descripcion  }}</td>
                         <td>
                    
                           <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o actividad desde la misma tabla HTML -->                        
-                          <form method="POST" action="eliminar/{{nivel.idnivel}}">
+                          <form method="POST" action="eliminar/{{calarma.idcalarma}}">
                             {% csrf_token %}
                             <div class="btn-group">
                               
-                              <a href="detalle/{{nivel.idnivel}}" title="Ver" type="button" class="btn btn-success">Ver </a>
-                              <a href="editar/{{nivel.idnivel}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                              <a href="detalle/{{calarma.idcalarma}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                              <a href="editar/{{calarma.idcalarma}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
                               
                               <!-- Este botón ejecuta el formulario para eliminar un registro o actividad en la Base de datos -->
                               <button class="btn btn-danger" onclick="return eliminar();" type="submit">

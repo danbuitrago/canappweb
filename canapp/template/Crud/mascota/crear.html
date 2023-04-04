@@ -1,7 +1,14 @@
-<!DOCTYPE html>
+{# Cargamos la librería #}
+{% load bootstrap4 %}
+{# CSS Bootstrap #}
+{% bootstrap_css %} 
 
+{# Widget Tweaks #}
+{% load widget_tweaks %}
+   
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
-    
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,84 +17,94 @@
         <meta name="author" content="" />
         <title>Dashboard - SB Admin</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="/static/css/styles.css" rel="stylesheet" />
+        <link href="/static/css/styles.css/" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-
-        {# Cargamos la librería #}
-        {% load bootstrap4 %}
- 
-        {# CSS Bootstrap #}
-        {% bootstrap_css %} 
-
-        {# Widget Tweaks #}
-        {% load widget_tweaks %}
-
-        <form method="post" enctype="multipart/form-data">
-    
-        {# Pasamos el 'csrf_token' de seguridad para poder crear un nuevo registro #}
-        {% csrf_token %}
-      
-          <!-- {{ form.as_p }} -->
-
     </head>
-
     <body class="sb-nav-fixed">
-        {% include "nav.html" %}                           
-            </div>
+        {% include "nav.html" %}
+        </div>
             <div id="layoutSidenav_content">
+                <main>
+                  <div class="container-fluid px-4"> 
+                      <h1 class="mt-4">Collar</h1>
+                    
+                    <div class="card mb-4">
+                      <div class="card-header">
+                          <i class="fas fa-table me-1"></i>
+                          Collar
+                      </div>
+                      <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+    
+                      {# Pasamos el 'csrf_token' de seguridad para poder crear un nuevo registro #}
+                      {% csrf_token %}
+                      
+                      <!-- {{ form.as_p }} -->
+                      <div class="form-group">
+                        <label for="idmascota" class="txt_negrita">Código de id mascota</label>
+                        {{ form.idmascota|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                      </div>
+                      <div class="form-group">
+                        <label for="nombre " class="txt_negrita">nombre</label>
+                        {{ form.nombre |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label for="color " class="txt_negrita">Color</label>
+                        {{ form.color |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label for="peso " class="txt_negrita">peso</label>
+                        {{ form.peso |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label for="genero " class="txt_negrita">genero</label>
+                        {{ form.genero |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label for="fechadenacimiento " class="txt_negrita">fechadenacimiento</label>
+                        {{ form.fechadenacimiento |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                     <div class="form-group">
+                        <label for="foto " class="txt_negrita">foto</label>
+                        {{ form.foto |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                     <div class="form-group">
+                        <label for="observaciones " class="txt_negrita">observaciones</label>
+                        {{ form.observaciones |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label for="collar_idcollar " class="txt_negrita">collar_idcollar</label>
+                        {{ form.collar_idcollar |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label for="tanimal_idtanimal " class="txt_negrita">tanimal_idtanimal</label>
+                        {{ form.tanimal_idtanimal |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label for="raza_idraza " class="txt_negrita">raza_idraza</label>
+                        {{ form.raza_idraza |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label for="especie_idespecie " class="txt_negrita">especie_idespecie</label>
+                        {{ form.especie_idespecie |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                      <div class="form-group">
+                        <label for="alarma_idalarmas " class="txt_negrita">alarma_idalarmas</label>
+                        {{ form.alarma_idalarmas |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                      </div>
+                                            
+                      
+                      <button type="submit" class="btn btn-primary">Aceptar</button> 
+                      <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
+                    
+                    </form>
+                  </div>   
+                </main>
                 
-        <main>
-                
-                <div class="form-group">
-                  <label for="nombre" class="txt_negrita">Nombre</label>
-                  {{ form.nombre|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
-                </div>
-                <div class="form-group">
-                  <label for="color" class="txt_negrita">Color</label>
-                  {{ form.color|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
-                </div>
-                <div class="form-group">
-                    <label for="peso" class="txt_negrita">Peso</label>
-                    {{ form.peso|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
-                  </div>
-                  <div class="form-group">
-                    <label for="genero" class="txt_negrita">Genero</label>
-                    {{ form.genero|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
-                  </div>
-                  <div class="form-group">
-                    <label for="fechadenacimiento" class="txt_negrita">Fecha de nacimiento</label>
-                    {{ form.fechadenacimiento|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
-                  </div>
-                  <div class="form-group">
-                    <label for="observaciones" class="txt_negrita">Observaciones</label>
-                    {{ form.observaciones|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
-                  </div>
-            
-                
-                <button type="submit" class="btn btn-primary">Aceptar</button> 
-                <a href="./" type="submit" class="btn btn-primary">Cancelar</a>
-              
-              </form>
-
-          
-        </main>
-
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="js/scripts1.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
@@ -96,12 +113,15 @@
     </body>
 </html>
 
+   
+   
+   
+   
+   
+   
+   
+   
+   
 
 
-
-
-
-
-
-
-
+   

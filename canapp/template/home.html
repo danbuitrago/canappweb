@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html> <html>
+<head>    
+    <title>CANAPP WEB</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/stylesheet.css"/>
+</head>
+
+<body background="/static/media/mascotas.jpg">  
+    <div id="encabezado">
+        <p id="name">BIENVENIDO A CAN&APP "Cuidando tu mascota"</p>
+        <a href="{% url 'login' %}" target=""><p id="email">INGRESA</p></a>
+    </div>
+
+    <div class="izquierda" >
+        <div class="info">
+            <ol class="">
+                <li id="margen-top"><a href="{% url 'home' %}"><span>Inicio</span> </a> </li>                
+                <li id="margen-top"><a href="{% url 'Nosotros' %}"><span>Acerca de Nosotros </span> </a> </li>
+                <li id="margen-top"><a href="{% url 'Empresa' %}"> <span>Empresa</span></a></li>
+                <li id="margen-top"><a href="Productos.html"><span>Productos</span></a></li>
+                <li id="margen-top"><a href="{% url 'services' %}"><span>Servicios</span></a></li>
+                <li id="margen-top"><a href="{% url 'contact' %}"><span>Contacto</span></a></li>
+                <li id="margen-top"><a href="{% url 'Ubicacion' %}"><span>Ubícanos</span></a></li>
+                
+            </ol>       
+        </div>   
+    </div>
+
+    {%block content%}{%endblock%}
+
+    
+    <div id="pie">
+        <p id="direccion"> <span> Ubícanos: Carrera 20 Calle 9, Popayán</span> 190001 | Tel: <span>(+57) 3125651738</span></p>
+    </div>
+
+    
+  
+</body>
+

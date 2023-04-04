@@ -37,6 +37,7 @@
                 <th>Peso </th>
                 <th>Genero </th>
                 <th>Fecha de nacimiento </th>
+                <th>Foto </th>
                 <th>Observaciones </th>
                 <th>Id collar </th>
                 <th>Id tanimal </th>
@@ -47,11 +48,11 @@
             </thead>
             <tbody>  
             
-            {% for mascota in object_list %}
+            {% for Mascota in object_list %}
               <tr>
-                <td>{{ mascota.idmascota}}</td>
-                <td>{{ mascota.nombre }}</td>
-                <td>{{ mascota.descripcion }}</td>
+                <td>{{ Mascota.idmascota}}</td>
+                <td>{{ Mascota.nombre }}</td>
+                <td>{{ Mascota.descripcion }}</td>
                 <td>
             
                   <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
@@ -59,7 +60,7 @@
                     {% csrf_token %}
                     <div class="btn-group">
                       
-                      <a href="detalle/{{mascota.idmascota}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                      <a href="detalle/{{Mascota.idmascota}}" title="Ver" type="button" class="btn btn-success">Ver </a>
                       <a href="editar/{{mascota.idmascota}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
                       
                       <!-- Este botón ejecuta el formulario para eliminar un registro o postre en la Base de datos -->

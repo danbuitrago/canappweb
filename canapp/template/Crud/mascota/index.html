@@ -49,9 +49,10 @@
                             <table id="datatablesSimple">
                               <thead>
                                <tr>
-                                  <th>mascota </th>
+                                  <th>Mascota </th>
                                   <th>Nombre</th>
                                   <th>Color</th>
+                                  <th>Peso</th>
                                   <th>Genero</th>
                                   <th>Fecha Nacimiento</th>
                                   <th>Foto</th>
@@ -65,47 +66,37 @@
                              </thead>
                           <tfoot>
                             <tr> 
-                                <th>mascota </th>
-                                <th>Nombre</th>
-                                <th>Color</th>
-                                <th>Genero</th>
-                                <th>Fecha Nacimiento</th>
-                                <th>Foto</th>
-                                <th>Observaciones</th>
-                                <th>Id collar</th>
-                                <th>Id tanimal</th>
-                                <th> Id raza</th>
-                                <th> Id especie</th>
-                                <th> Id alarmas</th>
+                                
                             </tr>
                          </tfoot>
                             <tbody>
                               <!-- Recorremos los objetos o registros que tenemos en nuestra tabla 'categoria' y los listamos -->
-                              {% for mascota in object_list %}
+                              {% for Mascota in object_list %}
                                 <tr>
-                                  <td>{{ mascota.idmascota }}</td>
-                                  <td>{{ mascota.nombre }}</td>
-                                  <td>{{ mascota.color }}</td>
-                                  <td>{{ mascota.genero }}</td>
-                                  <td>{{ mascota.fechadenacimiento }}</td>
-                                  <td>{{ mascota.foto }}</td>
-                                  <td>{{ mascota.observaciones }}</td>
-                                  <td>{{ mascota.collar_idcollar }}</td>
-                                  <td>{{ mascota.tanimal_idtanimal }}</td>
-                                  <td>{{ mascota.raza_idraza }}</td>
-                                  <td>{{ mascota.especie_idespecie }}</td>
-                                  <td>{{ mascota.alarma_idalarmas }}</td>
+                                  <td>{{ Mascota.idmascota }}</td>
+                                  <td>{{ Mascota.nombre }}</td>
+                                  <td>{{ Mascota.color }}</td>
+                                  <td>{{ Mascota.peso }}</td>
+                                  <td>{{ Mascota.genero }}</td>
+                                  <td>{{ Mascota.fechadenacimiento }}</td>
+                                  <td>{{ Mascota.foto }}</td>
+                                  <td>{{ Mascota.observaciones }}</td>
+                                  <td>{{ Mascota.collar_idcollar }}</td>
+                                  <td>{{ Mascota.tanimal_idtanimal }}</td>
+                                  <td>{{ Mascota.raza_idraza }}</td>
+                                  <td>{{ Mascota.especie_idespecie }}</td>
+                                  <td>{{ Mascota.alarma_idalarmas }}</td>
                                   <td>
 
                                 
                                   <!-- Usaremos un formulario que realizará la tarea de eliminar un registro o postre desde la misma tabla HTML -->                        
-                              <form method="POST" action="eliminar/{{ mascota.idmascota}}">
+                              <form method="POST" action="eliminar/{{ Mascota.idmascota}}">
                                   {% csrf_token %}
                                   <div class="btn-group">
                         
                                     <!-- Creamos 3 botones que son ver, Editar y Eliminar, nos sirven para gestionar nuestros registros o postres -->
-                                    <a href="detalle/{{ mascota.idmascota}}" title="Ver" type="button" class="btn btn-success">Ver </a>
-                                    <a href="editar/{{ mascota.idmascota}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
+                                    <a href="detalle/{{ Mascota.idmascota}}" title="Ver" type="button" class="btn btn-success">Ver </a>
+                                    <a href="editar/{{ Mascota.idmascota}}" title="Editar" type="button" class="btn btn-primary">Editar </a>
                                     <button class="btn btn-danger" onclick="return eliminar();" type="submit">
                                       Eliminar
                                     </button>

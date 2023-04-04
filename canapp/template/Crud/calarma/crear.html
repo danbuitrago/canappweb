@@ -26,12 +26,12 @@
             <div id="layoutSidenav_content">
                 <main>
                   <div class="container-fluid px-4"> 
-                      <h1 class="mt-4">Nivel</h1>
+                      <h1 class="mt-4">Clase de Alarma</h1>
                     
                     <div class="card mb-4">
                       <div class="card-header">
                           <i class="fas fa-table me-1"></i>
-                          Nivel
+                          Clase de Alarma
                       </div>
                       <div class="card-body">
                     <form method="post" enctype="multipart/form-data">
@@ -41,14 +41,18 @@
                       
                       <!-- {{ form.as_p }} -->
                       <div class="form-group">
-                        <label for="idnivel" class="txt_negrita">Código de nivel</label>
-                        {{ form.idnivel|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                        <label for="idcalarma" class="txt_negrita">Código de clase de alarma</label>
+                        {{ form.idcalarmas|add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
                       </div>
                       <div class="form-group">
-                        <label for="denominacion " class="descripcion">Denominación</label>
-                        {{ form.denominacion |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
+                        <label for="nombre " class="txt_negrita">nombre</label>
+                        {{ form.nombre |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto --> 
                       </div>
-                                            
+                      <div class="form-group">
+                        <label for="descripcion" class="txt_negrita">descripcion</label>
+                        {{ form.descripcion |add_class:"form-control" }} <!-- Usamos la librería 'widget_tweaks' para crear esta caja de texto -->
+                      </div>
+                                          
                       
                       <button type="submit" class="btn btn-primary">Aceptar</button> 
                       <a href="../" type="submit" class="btn btn-primary">Cancelar</a>
@@ -68,7 +72,6 @@
         <script src="js/datatables-simple-demo.js"></script>
     </body>
 </html>
-
    
    
    

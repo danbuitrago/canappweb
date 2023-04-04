@@ -27,31 +27,34 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4"> 
-                        <h1 class="mt-4">Nivel</h1>
+                        <h1 class="mt-4">Clase de Alarma</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.html">Parametros</a></li>
-                            <li class="breadcrumb-item active">Nivel</li>
+                            <li class="breadcrumb-item active">Clase de Alarma</li>
                         </ol>
                         
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Nivel
+                                Clase Alarma
                             </div>
                             <div class="card-body">
                         
                             <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th width="35%">Código  de Nivel</th>
-                                            <th >Denominación</th>
+                                            <th width="35%">Código  de Clase de Alarma</th>
+                                            <th >Nombre</th>
+                                            <th >descripcion</th>
+                                          
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>{{object.idnivel}}</td>
-                                            <td>{{object.denominacion}}</td>
-                                            <td>
+                                            <td>{{object.idCalarma}}</td>
+                                            <td>{{object.nombre}}</td>
+                                            <td>{{object.descripcion}}</td>
+                                            
                                         </tr>
                                     </tbody>    
                             </table> 

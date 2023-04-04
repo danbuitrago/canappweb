@@ -21,7 +21,7 @@
         {% if messages %}
         <ul class="messages list-group mb-3">
           {% for message in messages %}
-          <li{% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
+          <li {% if message.tags %} class="{{ message.tags }} list-group-item list-group-item-primary"{% endif %}>{{ message }}</li>
           {% endfor %}
         </ul>
         {% endif %}
@@ -32,10 +32,10 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Clase alarma</h1>
+                        <h1 class="mt-4">Clase de Alarma</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item"><a href="index.html">Parametros</a></li>
-                            <li class="breadcrumb-item active">Nivel</li>
+                            <li class="breadcrumb-item"><a href="index.html">Clase de Alarma</a></li>
+                            <li class="breadcrumb-item active">Clase de Alarma</li>
                         </ol>
                         
                             {# JS y jQuery Bootstrap #}
@@ -46,30 +46,30 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Nivel
+                                Clase de Alarma
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Id Clase alarma</th>
-                                            <th>Codigo</th>   
-                                            <th>Descripcion</th>                                         
+                                            <th>Código de Clase de Alarma </th>
+                                            <th>Nombre</th>  
+                                            <th>Descripcion</th>
+                                       
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Id Clase alarma</th>
-                                            <th>Codigo</th>   
-                                            <th>Descripcion</th>   
+                                                 
+                                               
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        {% for nivel in object_list %}
+                                        {% for Calarma in object_list %}
                                             <tr>
                                                 <td>{{ Calarma.idcalarma }}</td>
                                                 <td>{{ Calarma.nombre }}</td>
-                                                <td>{{ Calarma.descripcion  }}</td>
+                                                <td>{{ Calarma.descripcion }}</td>
                                                 <td>
                                                     <form method="POST" action="eliminar/{{Calarma.idcalarma}}">
                                                         {% csrf_token %}
