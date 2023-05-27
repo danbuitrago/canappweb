@@ -28,7 +28,7 @@ urlpatterns = [
     #llamada a los path de las static
     path('home/', Home, name='home'),
     path('home/Nosotros/', Nosotros, name='Nosotros'),
-    path('home/Empresa/', Empresa, name='Empresa'),
+    path('home/Empresa/', EmpresaInfo, name='EmpresaInfo'),
     path('home/Ubicacion/', Ubicacion, name='Ubicacion'),
     #paths de login y logout
     path('login/', LoginView.as_view(template_name='login.html'), name="login"),
@@ -37,6 +37,9 @@ urlpatterns = [
     path('home/contact/', include('contact.urls')),
     #path de services
     path('home/services/',include('services.urls')),
+    #path de geoservice
+    #path('home/services/geoservice/',geoservice, name="geoservice"),
+    
 ]
 #SI TENEMOS EL DEBUG EN MARCHA ACTIVAMOS LA OPCION DE SERVIR FICHEROS MEDIA EN LA STATIC_URL QUE SE BUSCAN EL EL DIRECTORIO MEDIA_ROOT
 if settings.DEBUG:

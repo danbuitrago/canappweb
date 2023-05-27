@@ -28,7 +28,7 @@ def Login(request):
 def Nosotros(request):
     return render (request, 'Nosotros.html')
 # VISTA DE EMPRESA
-def Empresa(request):
+def EmpresaInfo(request):
     return render (request, 'Empresa.html')
 # VISTA DE UBICACION
 def Ubicacion(request):

@@ -27,4 +27,4 @@ while True:
         packet=serialInst.readline()
         #capturar()  # capturar datos para poner en archivo txt
         #mostrar los datos del archivo
-        print(packet.decode('utf'))
+        print(packet.decode('utf-8'))
