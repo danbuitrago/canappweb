@@ -1,0 +1,68 @@
+
+
+Para mostrar datos desde un datasheet en un template de Django utilizando la librería `gspread`, primero debes autenticar y acceder a la hoja de cálculo de Google Sheets desde tu aplicación Django. Puedes hacerlo utilizando las credenciales de servicio de Google Cloud Platform. Una vez que hayas accedido a la hoja de cálculo, puedes leer los datos y pasarlos al contexto de la vista para que puedan ser mostrados en el template.
+
+A continuación te mostramos un ejemplo básico de cómo hacerlo:
+
+1. Instala la librería gspread en tu entorno virtual:
+
+```
+pip install gspread
+```
+
+2. Crea un proyecto en Google Cloud Platform y agrega las credenciales de servicio en tu proyecto de Django.
+
+3. En tu vista, utiliza las credenciales de servicio para autenticarte y acceder a la hoja de cálculo. Luego, lee los datos y pásalos al contexto de la vista:
+
+```python
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+from django.shortcuts import render
+
+def hoja_de_calculo(request):
+    # Autenticación con las credenciales de servicio
+    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+    credentials = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
+    client = gspread.authorize(credentials)
+
+    # Acceso a la hoja de cálculo
+    sheet = client.open('Nombre de la hoja de cálculo').sheet1
+
+    # Leer los datos y pasarlos al contexto de la vista
+    data = sheet.get_all_records()
+    return render(request, 'hoja_de_calculo.html', {'data': data})
+```
+
+En este ejemplo, la vista `hoja_de_calculo` autentica con las credenciales de servicio y accede a la hoja de cálculo utilizando el método `open` de la clase `Client`. Luego, utiliza el método `get_all_records` del objeto `Sheet` para leer todos los datos de la hoja de cálculo y los pasa al contexto de la vista.
+
+4. En el template, itera sobre los datos y muéstralos como desees:
+
+```html
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Hoja de cálculo</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Columna 1</th>
+        <th>Columna 2</th>
+        <th>Columna 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in data %}
+        <tr>
+          <td>{{ row.columna1 }}</td>
+          <td>{{ row.columna2 }}</td>
+          <td>{{ row.columna3 }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+```
+
+En este ejemplo, el template itera sobre los datos utilizando un ciclo `for` y muestra cada fila como una fila de una tabla HTML. Para acceder a cada columna, utiliza la sintaxis de diccionario de Python (por ejemplo, `{{ row.columna1 }}`). 
+
+Recuerda que este es solo un ejemplo básico y que puedes personalizar el código según las particularidades de tus datos y de tu aplicación Django. También debes tener en cuenta que es importante validar y limpiar los datos del datasheet antes de mostrarlos en el template para evitar problemas de seguridad y errores de datos.
